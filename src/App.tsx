@@ -2,36 +2,20 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import {
-  GitHub as GitHubIcon,
-  MoreHoriz as MoreHorizIcon,
-  Language as Languageicon,
-} from "@mui/icons-material";
-import {
-  Avatar,
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Chip,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardMedia, Typography } from "@mui/material";
 import Projects from "./components/Projects";
 import PortfolioTheme from "./theme/Theme";
 
 function App() {
   return (
     <PortfolioTheme>
-      <Typography>Take a look at my projects!</Typography>
+      <Box sx={{ height: "100%" }}>
+        <Typography>Take a look at my projects!</Typography>
 
-      <Projects />
+        <Projects />
 
-      <Card variant="outlined" sx={{ maxWidth: 345, borderColor: "" }}>
-        {/* <CardHeader
+        <Card variant="outlined" sx={{ maxWidth: 345, borderColor: "" }}>
+          {/* <CardHeader
           avatar={
             <Avatar
               variant="square"
@@ -47,13 +31,13 @@ function App() {
           title="Netflix Clone"
           subheader="Full Stack"
         /> */}
-        <CardMedia
-          component="img"
-          height="194"
-          image="https://occ-0-2218-2219.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABd3DP_WEsTYQrNYn9Pg0vIYGS7itiw-SmaglU6uew1lrM3weF0lhiKqg2WNZvMZHLNWf5kaWUOOfeJyx-8ajnqlsRylercjwUAgd8z6Gsfmi9nOdoQ54_QNyJgpqyJiFkZ5Y.jpg?r=127"
-          alt="Paella dish"
-        />
-        {/* <CardContent>
+          <CardMedia
+            component="img"
+            height="194"
+            image="https://occ-0-2218-2219.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABd3DP_WEsTYQrNYn9Pg0vIYGS7itiw-SmaglU6uew1lrM3weF0lhiKqg2WNZvMZHLNWf5kaWUOOfeJyx-8ajnqlsRylercjwUAgd8z6Gsfmi9nOdoQ54_QNyJgpqyJiFkZ5Y.jpg?r=127"
+            alt="Paella dish"
+          />
+          {/* <CardContent>
           <Typography>Summary</Typography>
           <Typography variant="body2" color="text.secondary">
             Netflix Clone build with custom component library and design system.
@@ -94,7 +78,7 @@ function App() {
             />
           </Stack>
         </CardContent> */}
-        {/* <CardActions disableSpacing>
+          {/* <CardActions disableSpacing>
           <Button variant="contained" startIcon={<Languageicon />} size="small">
             Live Project
           </Button>
@@ -108,7 +92,8 @@ function App() {
             Source Code
           </Button>
         </CardActions> */}
-      </Card>
+        </Card>
+      </Box>
     </PortfolioTheme>
   );
 }

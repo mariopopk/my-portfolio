@@ -5,11 +5,13 @@ import {
   CardContent,
   Typography,
 } from "@mui/material";
+import { usePortfolioTheme } from "../theme/Theme";
 
 export default function Projects() {
+  const theme = usePortfolioTheme();
   return (
     <>
-      {/* <Button onClick={toggleThemeMode}>Switch</Button> */}
+      <Button onClick={theme.toggleColorMode}>Switch</Button>
 
       <Card variant="outlined" sx={{ maxWidth: 500 }}>
         <CardContent>
