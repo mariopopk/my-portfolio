@@ -20,28 +20,15 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import PortfolioTheme from "./Theme/Theme";
+import Projects from "./components/Projects";
+import PortfolioTheme from "./theme/Theme";
 
 function App() {
   return (
     <PortfolioTheme>
       <Typography>Take a look at my projects!</Typography>
 
-      <Card variant="outlined" sx={{ maxWidth: 500 }}>
-        <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Full Stack Project
-          </Typography>
-          <Typography variant="h5" component="div">
-            Netflix Clone
-          </Typography>
-
-          <Typography variant="body2"></Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Card>
+      <Projects />
 
       <Card variant="outlined" sx={{ maxWidth: 345, borderColor: "" }}>
         {/* <CardHeader
