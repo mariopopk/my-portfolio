@@ -5,10 +5,11 @@ export type ThemeMode = "light" | "dark";
 // Should not be exported
 const darkThemePalette = {
   primary: indigo,
-  divider: blue[300],
+  secondary: grey,
+  divider: "#20222e",
   background: {
     // default: "#292929",
-    paper: "#101119",
+    paper: "rgba(42,43,56,.5)",
     default: "#101119",
     // paper: "black",
   },
@@ -21,7 +22,8 @@ const darkThemePalette = {
 // Should not be exported
 const lightThemePalette = {
   primary: indigo,
-  divider: blue[300],
+
+  divider: grey[300],
   background: {
     paper: "#ffffff",
     default: grey[200],
@@ -43,6 +45,9 @@ const themeOptions = {
       xl: 1350,
     },
   },
+  shape: {
+    borderRadius: 20,
+  },
   components: {
     MuiChip: {
       styleOverrides: {
@@ -63,9 +68,7 @@ const themeOptions = {
     },
     MuiCard: {
       styleOverrides: {
-        root: {
-          borderRadius: "1rem",
-        },
+        root: {},
       },
     },
     MuiButtonBase: {

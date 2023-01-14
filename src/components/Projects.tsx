@@ -9,15 +9,15 @@ export default function Projects() {
       <Button onClick={theme.toggleColorMode}>Switch</Button>
       <Grid container spacing={4}>
         <Grid item xs={12} lg={4} md={6}>
-          <ProjectCard flipped={true} />
+          <ProjectCard />
         </Grid>
 
         <Grid item xs={12} lg={4} md={6}>
-          <ProjectCard flipped={true} />
+          <ProjectCard />
         </Grid>
 
         <Grid item xs={12} lg={4} md={6}>
-          <ProjectCard flipped={true} />
+          <ProjectCard />
         </Grid>
       </Grid>
     </>

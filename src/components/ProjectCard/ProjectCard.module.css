@@ -7,4 +7,28 @@
 
 .projectCard {
   position: relative;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s,
+    opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s,
+    transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
+
+.projectCard:hover .cardMedia {
+  opacity: 0;
+}
+.projectCard:hover .projectCardContent {
+  opacity: 1;
+  /* transform: scale(1); */
+}
+
+.cardMedia,
+.projectCardContent {
+  transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s,
+    opacity 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
+
+.projectCardContent {
+  opacity: 0;
+  cursor: pointer;
+  overflow: hidden;
+  /* transform: scale(0.3); */
 }
