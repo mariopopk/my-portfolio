@@ -12,12 +12,26 @@
     transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 
-.projectCard:hover .cardMedia {
+.projectCard:focus-visible,
+.projectCard:focus-within {
+  outline-width: 0;
+}
+
+.projectCard:hover .cardMedia,
+.projectCard:focus-within .cardMedia {
   opacity: 0;
 }
-.projectCard:hover .projectCardContent {
+.projectCard:hover .projectCardContent,
+.projectCard:focus-within .projectCardContent {
   opacity: 1;
-  /* transform: scale(1); */
+}
+
+.projectCard:focus .projectCardContent,
+.projectCard:focus-within .projectCardContent {
+  outline-offset: -4px;
+  outline-style: dashed;
+  outline-width: 2px;
+  outline-color: #3f51b5;
 }
 
 .cardMedia,
@@ -29,6 +43,4 @@
 .projectCardContent {
   opacity: 0;
   cursor: pointer;
-  overflow: hidden;
-  /* transform: scale(0.3); */
 }

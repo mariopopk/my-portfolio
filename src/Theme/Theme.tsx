@@ -31,7 +31,6 @@ export default function PortfolioTheme({ children }: PortfolioThemeProps) {
     <ColorModeContext.Provider value={value}>
       <ThemeProvider theme={theme}>
         {children}
-
         <CssBaseline />
       </ThemeProvider>
     </ColorModeContext.Provider>

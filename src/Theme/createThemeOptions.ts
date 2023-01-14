@@ -1,4 +1,4 @@
-import { blue, grey, indigo } from "@mui/material/colors";
+import { blue, common, grey, indigo, teal } from "@mui/material/colors";
 
 export type ThemeMode = "light" | "dark";
 
@@ -22,6 +22,9 @@ const darkThemePalette = {
 // Should not be exported
 const lightThemePalette = {
   primary: indigo,
+  secondary: {
+    main: grey[800],
+  },
 
   divider: grey[300],
   background: {
