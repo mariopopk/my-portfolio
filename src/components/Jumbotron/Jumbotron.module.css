@@ -1,0 +1,28 @@
+.color-changing {
+  background-image: linear-gradient(
+    -225deg,
+    #6bc5f8 0%,
+    #8000ff 25%,
+    #cf59e6 50%,
+    #6bc5f8 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 400% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorChange 10s linear infinite alternate;
+  display: inline-block;
+}
+
+@keyframes colorChange {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: 100% center;
+  }
+}

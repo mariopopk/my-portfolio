@@ -1,42 +1,31 @@
-import { grey, purple } from "@mui/material/colors";
+import { blue, grey, indigo } from "@mui/material/colors";
 
 export type ThemeMode = "light" | "dark";
 
 // Should not be exported
 const darkThemePalette = {
-  palette: {
-    type: "dark",
-    primary: {
-      main: "#7209b7",
-    },
-    error: {
-      main: "#b71c1c",
-    },
-    secondary: {
-      main: "#fff",
-    },
-    success: {
-      main: "#1b5e20",
-    },
-    info: {
-      main: "#f4f4f4",
-    },
-    warning: {
-      main: "#e65100",
-    },
-    background: {
-      default: "rgb(0, 30, 60)",
-      paper: "rgb(0, 30, 60)",
-    },
-    divider: "#e5e5e5",
+  primary: indigo,
+  divider: blue[300],
+  background: {
+    // default: "#292929",
+    paper: "#101119",
+    default: "#101119",
+    // paper: "black",
+  },
+  text: {
+    primary: grey[100],
+    secondary: grey[200],
   },
 };
 
 // Should not be exported
 const lightThemePalette = {
-  // palette values for light mode
-  primary: purple,
-  divider: purple[200],
+  primary: indigo,
+  divider: blue[300],
+  background: {
+    paper: "#ffffff",
+    default: grey[200],
+  },
   text: {
     primary: grey[900],
     secondary: grey[800],
@@ -58,7 +47,6 @@ const themeOptions = {
     MuiChip: {
       styleOverrides: {
         root: {
-          // borderColor: themeColors.palette.divider,
           fontWeight: "500",
         },
       },
@@ -66,6 +54,7 @@ const themeOptions = {
     MuiLink: {
       styleOverrides: {
         root: {
+          textDecoration: "none",
           span: {
             textTransform: "none",
           },
@@ -75,9 +64,7 @@ const themeOptions = {
     MuiCard: {
       styleOverrides: {
         root: {
-          boxShadow: "unset",
-          borderRadius: "0.5rem",
-          borderWidth: "3px",
+          borderRadius: "1rem",
         },
       },
     },
@@ -115,8 +102,8 @@ const createThemeOptions = (mode: ThemeMode) => ({
   palette: {
     mode,
     ...(mode === "light" ? lightThemePalette : darkThemePalette),
-    ...themeOptions,
   },
+  ...themeOptions,
 });
 
 export default createThemeOptions;

@@ -1,33 +1,25 @@
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Typography,
-} from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { usePortfolioTheme } from "../theme/Theme";
+import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
   const theme = usePortfolioTheme();
   return (
     <>
       <Button onClick={theme.toggleColorMode}>Switch</Button>
+      <Grid container spacing={4}>
+        <Grid item xs={12} lg={4} md={6}>
+          <ProjectCard flipped={true} />
+        </Grid>
 
-      <Card variant="outlined" sx={{ maxWidth: 500 }}>
-        <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Full Stack Project
-          </Typography>
-          <Typography variant="h5" component="div">
-            Netflix Clone
-          </Typography>
+        <Grid item xs={12} lg={4} md={6}>
+          <ProjectCard flipped={true} />
+        </Grid>
 
-          <Typography variant="body2"></Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Card>
+        <Grid item xs={12} lg={4} md={6}>
+          <ProjectCard flipped={true} />
+        </Grid>
+      </Grid>
     </>
   );
 }

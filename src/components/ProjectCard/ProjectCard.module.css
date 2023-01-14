@@ -1,0 +1,10 @@
+/*  */
+
+.projectCardOverlay {
+  position: absolute;
+  inset: 0;
+}
+
+.projectCard {
+  position: relative;
+}
