@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import createThemeOptions from "./createThemeOptions";
+import createThemeOptions, { defaultThemeMode } from "./createThemeOptions";
 import { CssBaseline, PaletteMode } from "@mui/material";
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -14,9 +14,8 @@ export function usePortfolioTheme() {
 }
 
 export default function PortfolioTheme({ children }: PortfolioThemeProps) {
-  const [mode, setMode] = useState<PaletteMode>("light");
+  const [mode, setMode] = useState<PaletteMode>(defaultThemeMode);
 
-  // Theme is hardcoded to darkTheme. Will add the option to switch later
   const theme = createTheme(createThemeOptions(mode));
 
   const value = {

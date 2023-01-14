@@ -1,11 +1,15 @@
+import { GitHub } from "@mui/icons-material";
+import { Button } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
+import ToggleTheme from "../ToggleTheme/ToggleTheme";
+
 export default function AppBar() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <MuiAppBar
         position="static"
         color="transparent"
@@ -13,9 +17,14 @@ export default function AppBar() {
         elevation={0}
       >
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Mario Popoca
-          </Typography>
+          <Box sx={{ flexGrow: 1 }}>
+            <Button size="large" color="primary" startIcon={<GitHub />}>
+              <Typography variant="inherit" letterSpacing="-1px">
+                Mario Popoca
+              </Typography>
+            </Button>
+          </Box>
+          <ToggleTheme />
         </Toolbar>
       </MuiAppBar>
     </Box>

@@ -9,14 +9,11 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Paper,
   Typography,
   CardHeader,
   IconButton,
   useTheme,
-  Box,
 } from "@mui/material";
-import { useState } from "react";
 
 import "animate.css";
 import cx from "classnames";
@@ -27,7 +24,7 @@ interface ProjectCardProps {
   name?: string;
 }
 
-export default function ProjectCard({}: ProjectCardProps) {
+export default function ProjectCard({ name }: ProjectCardProps) {
   const theme = useTheme();
 
   return (
@@ -90,9 +87,6 @@ export default function ProjectCard({}: ProjectCardProps) {
               >
                 Source Code
               </Button>
-              {/* <Button color="secondary" size="small" variant="text">
-                Details
-              </Button> */}
             </CardActions>
           </Card>
         </Card>
