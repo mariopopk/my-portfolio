@@ -13,44 +13,62 @@ import {
   CardHeader,
   IconButton,
   useTheme,
+  Box,
+  Link,
 } from "@mui/material";
 
-import "animate.css";
 import cx from "classnames";
-import AspectRatioBox from "../AspectRatioBox/AspectRatioBox";
 import styles from "./ProjectCard.module.css";
 
-interface ProjectCardProps {
+export interface ProjectCardProps {
   name?: string;
+  type?: "Full Stack" | "Front End" | "Back End";
+  description?: string;
+  liveLink?: string;
+  sourceCodeLink?: string;
+  media?: string[];
 }
 
-export default function ProjectCard({ name }: ProjectCardProps) {
-  const theme = useTheme();
+export default function ProjectCard({
+  name,
+  type,
+  media,
+  description,
+  liveLink,
+  sourceCodeLink,
+}: ProjectCardProps) {
+  const placeholder =
+    "https://images.ctfassets.net/5hn1f663deh9/3MLQmpkYiAKGJl6s91BSUu/c77a7e78d22825dbab91822476fbd9bf/AAAABRnfEBXpcJ74jyyz7MAdd6_jB5O3RPBzOEKhWUrI7nTXfN5c-JC7Da2NbFHiXOLCk5XvpCsOZzXj7haod8rletqu5dqp6rv2uo45.jpeg";
+
+  const [image = placeholder, video] = media || [];
+
+  const action = liveLink && (
+    <IconButton size="large">
+      <LaunchIcon />
+    </IconButton>
+  );
 
   return (
     <>
-      <AspectRatioBox aspectRatio={{ h: 2, w: 3 }}>
-        <Card tabIndex={0} className={styles.projectCard}>
-          <CardMedia
-            style={{ borderRadius: theme.shape.borderRadius, height: "100%" }}
-            className={cx(styles.cardMedia)}
-            component="video"
-            src="https://videos.ctfassets.net/5hn1f663deh9/5SOWgIC3nCZD4YBPdN13B6/4345b2509050ed7db080eb1843aa62d8/netflix-clone-desktop.mp4"
-            autoPlay
-            muted
-            loop
-            poster="https://images.ctfassets.net/5hn1f663deh9/uwqXYfOAqGMxqrH0kpZIW/e0077683210fdd1b44075b1ab1203dc9/Screenshot_20230114_020758.png"
-          />
-
-          <Card
-            elevation={0}
-            className={cx(styles.projectCardOverlay, styles.projectCardContent)}
-          >
+      <Card elevation={0} tabIndex={0} className={styles.projectCard}>
+        <Box style={{ height: "100%" }}>
+          {image && video ? (
+            <ProjectCardVideo poster={image} video={video} />
+          ) : (
+            <ProjectCardImage image={image} />
+          )}
+        </Box>
+        <Card
+          elevation={0}
+          className={cx(styles.projectCardOverlay, styles.projectCardContent)}
+        >
+          <Link tabIndex={-1} href={liveLink}>
+            {" "}
             <CardHeader
               avatar={<Folder fontSize="large" color="primary" />}
               title={
                 <Typography fontWeight="bold" variant="h5" component="div">
-                  Netflix Clone
+                  {name}
                 </Typography>
               }
               subheader={
@@ -60,26 +78,21 @@ export default function ProjectCard({ name }: ProjectCardProps) {
                   gutterBottom
                   fontWeight="500"
                 >
-                  Full Stack Project
+                  {!liveLink ? "Coming Soon" : type}
                 </Typography>
               }
-              action={
-                <IconButton size="large">
-                  <LaunchIcon />
-                </IconButton>
-              }
+              action={action}
             />
+          </Link>
 
-            <CardContent sx={{ flexGrow: 1 }}>
-              <Typography variant="body2">
-                Component Library from scratch. Netflix's official UI is
-                incosistent across platforms. This React component library
-                attempts to solve that
-              </Typography>
-            </CardContent>
+          <CardContent sx={{ flexGrow: 1 }}>
+            <Typography variant="body2">{description}</Typography>
+          </CardContent>
 
-            <CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
+          <CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
+            {sourceCodeLink && (
               <Button
+                href={sourceCodeLink}
                 color="secondary"
                 variant="text"
                 startIcon={<GitHubIcon />}
@@ -87,10 +100,46 @@ export default function ProjectCard({ name }: ProjectCardProps) {
               >
                 Source Code
               </Button>
-            </CardActions>
-          </Card>
+            )}
+          </CardActions>
         </Card>
-      </AspectRatioBox>
+      </Card>
     </>
+  );
+}
+
+function ProjectCardVideo({
+  poster,
+  video,
+}: {
+  poster: string;
+  video: string;
+}) {
+  const theme = useTheme();
+
+  return (
+    <CardMedia
+      style={{ borderRadius: theme.shape.borderRadius }}
+      className={cx(styles.cardMedia)}
+      component="video"
+      src={video}
+      autoPlay
+      muted
+      loop
+      poster={poster}
+    />
+  );
+}
+
+function ProjectCardImage({ image }: { image: string }) {
+  const theme = useTheme();
+
+  return (
+    <CardMedia
+      style={{ borderRadius: theme.shape.borderRadius }}
+      className={cx(styles.cardMedia)}
+      component="img"
+      src={image}
+    />
   );
 }

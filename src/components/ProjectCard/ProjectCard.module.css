@@ -1,10 +1,5 @@
 /*  */
 
-.projectCardOverlay {
-  position: absolute;
-  inset: 0;
-}
-
 .projectCard {
   position: relative;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s,
@@ -17,21 +12,9 @@
   outline-width: 0;
 }
 
-.projectCard:hover .cardMedia,
-.projectCard:focus-within .cardMedia {
-  opacity: 0;
-}
 .projectCard:hover .projectCardContent,
 .projectCard:focus-within .projectCardContent {
   opacity: 1;
-}
-
-.projectCard:focus .projectCardContent,
-.projectCard:focus-within .projectCardContent {
-  outline-offset: -4px;
-  outline-style: dashed;
-  outline-width: 2px;
-  outline-color: #3f51b5;
 }
 
 .cardMedia,
@@ -40,7 +23,36 @@
     opacity 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 
-.projectCardContent {
-  opacity: 0;
-  cursor: pointer;
+.cardMedia {
+  transform: scale(0.97);
+}
+
+@media screen and (min-width: 600px) {
+  .projectCardContent {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projectCardOverlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .projectCard:hover .cardMedia,
+  .projectCard:focus-within .cardMedia {
+    opacity: 0;
+  }
+
+  .cardMedia {
+    transform: none;
+  }
+
+  .projectCard:focus .projectCardContent,
+  .projectCard:focus-within .projectCardContent {
+    outline-offset: -4px;
+    outline-style: dashed;
+    outline-width: 2px;
+    outline-color: #3f51b5;
+  }
 }

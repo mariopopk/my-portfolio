@@ -29,10 +29,10 @@ const lightThemePalette = {
     main: grey[800],
   },
 
-  divider: grey[300],
+  divider: grey[200],
   background: {
     paper: "#ffffff",
-    default: grey[200],
+    default: grey[300],
   },
   text: {
     primary: grey[900],
